@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Download Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .app-card {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .app-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .app-card h3 {
+            margin: 0;
+        }
+
+        .app-card p {
+            margin: 10px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>App Download Website</h1>
+    </header>
+
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for apps...">
+
+        <div id="appList">
+            <div class="app-card">
+                <img src="app1.jpg" alt="App 1">
+                <div>
+                    <h3>App 1</h3>
+                    <p>Description of App 1</p>
+                    <a href="app1-download-link">Download</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="app2.jpg" alt="App 2">
+                <div>
+                    <h3>App 2</h3>
+                    <p>Description of App 2</p>
+                    <a href="app2-download-link">Download</a>
+                </div>
+            </div>
+
+            <!-- Add more app cards as needed -->
+
+        </div>
+    </div>
+
+    <script>
+        // Filter app list based on search input
+        document.getElementById('searchInput').addEventListener('input', function (event) {
+            var searchTerm = event.target.value.toLowerCase();
+            var appCards = document.getElementsByClassName('app-card');
+            for (var i = 0; i < appCards.length; i++) {
+                var appCard = appCards[i];
+                var appName = appCard.getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (appName.includes(searchTerm)) {
+                    appCard.style.display = 'grid';
+                } else {
+                    appCard.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
